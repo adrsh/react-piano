@@ -1,9 +1,9 @@
 import './Piano.css'
 
-function PianoKey({note, onPianoKeyPress}) {
+function PianoKey({note, onPianoKeyPress, color}) {
   return (
     <>
-    <button onClick={(e) => onPianoKeyPress(note)}>{note}</button>
+    <button className={color} onClick={() => onPianoKeyPress(note)}>{note}</button>
     </>
   )
 }

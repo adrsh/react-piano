@@ -1,4 +1,51 @@
-.pianoKey{
-	height: 4rem;
-	width: 1rem;
+.piano {
+	display: flex;
+	flex-direction: row;
+	position: relative;
 }
+
+.octave {
+	position: relative;
+	height: 12rem;
+}
+
+.white-keys {
+	display: flex;
+	position: relative;
+	height: 100%;
+}
+
+.black-keys {
+	display: flex;
+	position: absolute;
+	top: 0px;
+	height: 55%;
+	width: 100%;
+	justify-content: center;
+}
+
+.gap {
+	width: 1.5rem;
+}
+
+.black {
+	background-color: #101010;
+	outline: 1px solid white;
+	border-radius: 0 0 0.3rem 0.3rem;
+}
+
+.black:hover {
+	background-color: #202020;
+}
+
+.black:active {
+	background-color: #303030;
+}
+
+.white:hover {
+	background-color: #F0F0F0;
+}
+.white:active {
+	background-color: #e0e0e0 !important;
+}
+
