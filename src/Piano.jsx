@@ -3,15 +3,24 @@ import PianoKey from './PianoKey'
 import * as Tone from 'tone'
 
 function Piano() {
-  const synth = new Tone.Synth().toDestination();
+  const piano = new Tone.Sampler({
+    urls: {
+      "C4": "C4.mp3",
+      "D#4": "Ds4.mp3",
+      "F#4": "Fs4.mp3",
+      "A4": "A4.mp3",
+    },
+    release: 1,
+    baseUrl: "https://tonejs.github.io/audio/salamander/",
+  }).toDestination();
 
   async function playNote(note) {
     await Tone.start()
-    synth.triggerAttackRelease(Tone.Midi(note), "16n")
+    piano.triggerAttackRelease(Tone.Midi(note), "2n")
   }
 
   return (
-    <div className='piano'>
+    <div className="piano">
       <div className="octave">
         <div className="white-keys">
           <PianoKey note="60" onPianoKeyPress={playNote} color="white" />
@@ -25,7 +34,7 @@ function Piano() {
         <div className="black-keys">
           <PianoKey note="61" onPianoKeyPress={playNote} color="black" />
           <PianoKey note="63" onPianoKeyPress={playNote} color="black" />
-          <div className='gap'></div>
+          <div className="gap"></div>
           <PianoKey note="66" onPianoKeyPress={playNote} color="black" />
           <PianoKey note="68" onPianoKeyPress={playNote} color="black" />
           <PianoKey note="70" onPianoKeyPress={playNote} color="black" />
