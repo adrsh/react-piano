@@ -25,11 +25,23 @@
 }
 
 .gap {
-	width: 1.5rem;
+	width: 1.75rem;
+}
+
+.key {
+	display: flex;
+	width: 2.5rem;
+	align-items: flex-end;
+	justify-content: center;
+	color: #808080;
+	font-family: sans-serif;
+	font-size: 0.6rem;
+	user-select: none;
+	padding: 0.5rem;
 }
 
 .black, .white {
-	border: 1px solid #e0e0e0;
+	border: 1px solid #f0f0f0;
 	border-radius: 0 0 0.25rem 0.25rem;
 }
 
@@ -42,7 +54,7 @@
 }
 
 .black:active {
-	background-color: #303030;
+	background-color: #101010;
 }
 
 .white {
@@ -54,6 +66,14 @@
 }
 
 .white:active {
-	background-color: #e0e0e0;
+	background-color: #FFFFFF;
+}
+
+.white.pressed{
+	background-color: #e0e0e0 !important;
+}
+
+.black.pressed{
+	background-color: #303030 !important;
 }
 
