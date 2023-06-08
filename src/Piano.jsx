@@ -16,28 +16,32 @@ function Piano() {
 
   async function playNote(note) {
     await Tone.start()
-    piano.triggerAttackRelease(Tone.Midi(note), "2n")
+    piano.triggerAttack(Tone.Midi(note))
+  }
+
+  async function releaseNote(note) {
+    piano.triggerRelease(Tone.Midi(note))
   }
 
   return (
     <div className="piano">
       <div className="octave">
         <div className="white-keys">
-          <PianoKey note="60" onPianoKeyPress={playNote} color="white" />
-          <PianoKey note="62" onPianoKeyPress={playNote} color="white" />
-          <PianoKey note="64" onPianoKeyPress={playNote} color="white" />
-          <PianoKey note="65" onPianoKeyPress={playNote} color="white" />
-          <PianoKey note="67" onPianoKeyPress={playNote} color="white" />
-          <PianoKey note="69" onPianoKeyPress={playNote} color="white" />
-          <PianoKey note="71" onPianoKeyPress={playNote} color="white" />
+          <PianoKey note="60" onPianoKeyPress={playNote} onPianoKeyRelease={releaseNote} color="white" />
+          <PianoKey note="62" onPianoKeyPress={playNote} onPianoKeyRelease={releaseNote} color="white" />
+          <PianoKey note="64" onPianoKeyPress={playNote} onPianoKeyRelease={releaseNote} color="white" />
+          <PianoKey note="65" onPianoKeyPress={playNote} onPianoKeyRelease={releaseNote} color="white" />
+          <PianoKey note="67" onPianoKeyPress={playNote} onPianoKeyRelease={releaseNote} color="white" />
+          <PianoKey note="69" onPianoKeyPress={playNote} onPianoKeyRelease={releaseNote} color="white" />
+          <PianoKey note="71" onPianoKeyPress={playNote} onPianoKeyRelease={releaseNote} color="white" />
         </div>
         <div className="black-keys">
-          <PianoKey note="61" onPianoKeyPress={playNote} color="black" />
-          <PianoKey note="63" onPianoKeyPress={playNote} color="black" />
+          <PianoKey note="61" onPianoKeyPress={playNote} onPianoKeyRelease={releaseNote} color="black" />
+          <PianoKey note="63" onPianoKeyPress={playNote} onPianoKeyRelease={releaseNote} color="black" />
           <div className="gap"></div>
-          <PianoKey note="66" onPianoKeyPress={playNote} color="black" />
-          <PianoKey note="68" onPianoKeyPress={playNote} color="black" />
-          <PianoKey note="70" onPianoKeyPress={playNote} color="black" />
+          <PianoKey note="66" onPianoKeyPress={playNote} onPianoKeyRelease={releaseNote} color="black" />
+          <PianoKey note="68" onPianoKeyPress={playNote} onPianoKeyRelease={releaseNote} color="black" />
+          <PianoKey note="70" onPianoKeyPress={playNote} onPianoKeyRelease={releaseNote} color="black" />
         </div>
       </div>
     </div>
